@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Personal Website</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #f9f9f9;
+      text-align: center;
+    }
+    #slideshow {
+      width: 300px;
+      height: 300px;
+      margin: auto;
+      border: 2px solid #ccc;
+    }
+    #slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .calculator {
+      margin-top: 40px;
+      display: inline-block;
+      border: 2px solid #333;
+      padding: 20px;
+      background: white;
+    }
+    .calc-display {
+      font-size: 24px;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: right;
+      border: 1px solid #ccc;
+    }
+    .calc-buttons button {
+      width: 60px;
+      height: 60px;
+      font-size: 20px;
+      margin: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to My Website</h1>
+
+  <div id="slideshow">
+    <img id="slide" src="images/image1.jpg" alt="Animated Slideshow">
+  </div>
+
+  <div class="calculator">
+    <div id="display" class="calc-display">0</div>
+    <div class="calc-buttons">
+      <button onclick="press('7')">7</button>
+      <button onclick="press('8')">8</button>
+      <button onclick="press('9')">9</button>
+      <button onclick="press('/')">÷</button><br>
+      <button onclick="press('4')">4</button>
+      <button onclick="press('5')">5</button>
+      <button onclick="press('6')">6</button>
+      <button onclick="press('*')">×</button><br>
+      <button onclick="press('1')">1</button>
+      <button onclick="press('2')">2</button>
+      <button onclick="press('3')">3</button>
+      <button onclick="press('-')">−</button><br>
+      <button onclick="press('0')">0</button>
+      <button onclick="press('.')">.</button>
+      <button onclick="calculate()">=</button>
+      <button onclick="press('+')">+</button><br>
+      <button onclick="clearDisplay()">C</button>
+    </div>
+  </div>
+
+  <script>
+    // Slideshow logic
+    const imageList = [
+      "images/image1.jpg",
+      "images/image2.jpg",
+      "images/image3.jpg",
+      "images/image4.jpg"
+    ];
+    let currentImage = 0;
+    const slideImg = document.getElementById('slide');
+
+    function nextImage() {
+      currentImage = (currentImage + 1) % imageList.length;
+      slideImg.src = imageList[currentImage];
+    }
+
+    setInterval(nextImage, 1000); // change image every 1s
+
+    // Calculator logic
+    let expression = "";
+
+    function press(value) {
+      if (expression === "0") expression = "";
+      expression += value;
+      document.getElementById('display').textContent = expression;
+    }
+
+    function calculate() {
+      try {
+        const result = eval(expression);
+        document.getElementById('display').textContent = result;
+        expression = result.toString();
+      } catch {
+        document.getElementById('display').textContent = "Error";
+        expression = "";
+      }
+    }
+
+    function clearDisplay() {
+      expression = "";
+      document.getElementById('display').textContent = "0";
+    }
+  </script>
+
+</body>
+</html>
