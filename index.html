@@ -40,40 +40,61 @@
       margin: 30px 0 20px;
     }
 
-    .calculator {
+.calculator {
   margin-top: 20px;
   display: inline-block;
-  border: 2px solid #333;
-  padding: 20px;
-  background: springgreen;
-  border-radius: 20px; /* Rounded corners */
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  background: linear-gradient(145deg, #2ecc71, #27ae60);
+  padding: 25px 30px;
+  box-shadow:
+    6px 6px 15px #1c5a33,
+    -6px -6px 15px #3af27b;
 }
 
 .calc-display {
-  font-size: 24px;
-  padding: 10px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
   width: 100%;
   text-align: right;
-  border: 1px solid #ccc;
-  border-radius: 10px; /* Rounded corners for display */
+  border-radius: 15px;
+  background: linear-gradient(145deg, #2b7d32, #33a532);
+  box-shadow:
+    inset 4px 4px 7px #1b4f2a,
+    inset -4px -4px 7px #3dd94f;
+  color: white;
+  font-weight: bold;
+  user-select: none;
 }
 
 .calc-buttons button {
-  width: 60px;
-  height: 60px;
-  font-size: 20px;
-  margin: 5px;
-  cursor: pointer;
-  background-color: yellow;
+  width: 65px;
+  height: 65px;
+  margin: 8px;
   border: none;
-  border-radius: 50%; /* Make buttons circular */
-  transition: transform 0.1s;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #ffec3d, #f7d31d);
+  box-shadow:
+    4px 4px 8px #c7b800,
+    -4px -4px 8px #ffff76;
+  font-size: 22px;
+  font-weight: bold;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
 }
 
-    .calc-buttons button:hover {
-  transform: scale(1.05);
+.calc-buttons button:active {
+  box-shadow:
+    inset 3px 3px 5px #c7b800,
+    inset -3px -3px 5px #ffff76;
+  transform: translateY(2px);
+  color: #333;
+}
+
+.calc-buttons button:hover {
+  filter: brightness(110%);
 }
   </style>
 </head>
